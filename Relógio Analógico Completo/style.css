@@ -1,0 +1,119 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(#28303c, #10151d);
+}
+.clock {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  border: 7px solid #bd9552;
+  background: radial-gradient(
+    circle at 35% 28%,
+    #303842, #111820 67%
+  );
+  box-shadow:
+    0 0 0 3px #423321,
+    inset 0 0 0 3px #d5b474,
+    inset 0 0 0 9px #10151b,
+    0 20px 35px #0007;
+}
+.mark {
+  position: absolute;
+  inset: 13px;
+  transform: rotate(var(--angle));
+}
+.mark::before {
+  content: "";
+  display: block;
+  width: 2px;
+  height: 9px;
+  margin: auto;
+  border-radius: 3px;
+  background: #bda477;
+}
+.mark.major::before {
+  width: 4px;
+  height: 15px;
+  background: #e9cb8c;
+}
+
+/* Estilização e posicionamento dos números das horas */
+.number {
+  position: absolute;
+  inset: 0;
+  text-align: center;
+  transform: rotate(var(--angle));
+}
+.number span {
+  display: inline-block;
+  position: absolute;
+  top: 26px;
+  left: 50%;
+  transform: translateX(-50%) rotate(calc(-1 * var(--angle)));
+  color: #e9cb8c;
+  font: bold 13px Georgia, serif;
+}
+
+.brand {
+  position: absolute;
+  top: 28%;
+  width: 100%;
+  text-align: center;
+  color: #e8ce96;
+  font: bold 14px Georgia;
+  letter-spacing: 3px;
+}
+.brand small {
+  display: block;
+  margin-top: 7px;
+  color: #8e9aa5;
+  font: 8px Arial;
+  letter-spacing: 2px;
+}
+.hand {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform-origin: bottom center;
+  border-radius: 6px;
+}
+.hour {
+  width: 7px;
+  height: 24%;
+  margin-left: -3.5px;
+  background: linear-gradient(
+    90deg, #a78043, #f3d79a, #a78043
+  );
+  z-index: 2;
+}
+.minute {
+  width: 4px;
+  height: 35%;
+  margin-left: -2px;
+  background: #e8d4aa;
+  z-index: 3;
+}
+.second {
+  width: 2px;
+  height: 39%;
+  margin-left: -1px;
+  background: #db685d;
+  z-index: 4;
+}
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  transform: translate(-50%, -50%);
+  border: 3px solid #866539;
+  border-radius: 50%;
+  background: #e6c887;
+  z-index: 5;
+}
